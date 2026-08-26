@@ -19,7 +19,6 @@ namespace teste_PDS.DAO
                 var lista = new List<Processo>();
                 // Buscando e abrindo a conexão com banco de dados
                 using var con = _conexao.GetConnection();
-                con.Open();
 
                 string sql = "SELECT * FROM processos";
                 using var comando= con.CreateCommand();
@@ -34,7 +33,7 @@ namespace teste_PDS.DAO
                     processo.Interessado = leitor.GetString("interessado_pro");
                     processo.Assunto = leitor.GetString("assunto_pro");
                     processo.Descricao = leitor.GetString("descricao_pro");
-                    processo.Situacao = leitor.GetString("situcao_pro");
+                    processo.Situacao = leitor.GetString("situacao_pro");
 
                     lista.Add(processo);
                 }

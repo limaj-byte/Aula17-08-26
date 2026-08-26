@@ -1,6 +1,8 @@
 ﻿@page "/processos"
 @rendermode InteractiveServer
-@inject ProccessoDAO dao;
+
+@inject ProcessoDAO dao;
+
 <PageTitle>Processos - Sistema de Controle de Processos</PageTitle>
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
@@ -67,5 +69,16 @@
 </div>
 
 @code {
-    
+    private List<Processo>? processos;
+
+    protected override void OnInitialized()
+    {
+        CarregarProcessos();
+    }
+
+    private void CarregarProcessos()
+    {
+        processos = dao.Listar();
+
+    }
 }
